@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<title>Abner, Desenvolvedor Full Stack</title>
+<title>Abner Oliveira — Desenvolvedor Full Stack & Fotógrafo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="Portfólio e currículo de Abner Oliveira: desenvolvimento full stack, sistemas sob medida e trabalhos de fotografia e vídeo." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,-50..200&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,-50..200&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,11 +15,11 @@
 
   <header>
     <div class="row">
-      <a class="brand" href="#" data-view="projetos" aria-label="Ir para projetos">Abner</a>
+      <a class="brand" href="#" data-view="projetos" aria-label="Ir para projetos">Abner<span class="brand-dot">.</span></a>
       <div class="desktop-nav" aria-label="Navegação principal">
         <button class="desktop-nav-btn active" type="button" data-view="projetos">Projetos</button>
-        <button class="desktop-nav-btn" type="button" data-view="sobre">Sobre</button>
-        <button class="desktop-nav-btn" type="button" data-view="skills">Skills</button>
+        <button class="desktop-nav-btn" type="button" data-view="curriculo">Currículo</button>
+        <button class="desktop-nav-btn" type="button" data-view="midia">Fotografia &amp; Vídeo</button>
         <button class="desktop-nav-btn" type="button" data-view="contato">Contato</button>
       </div>
       <span class="status"><i class="dot"></i>Disponível</span>
@@ -31,8 +32,8 @@
     <section class="view active" id="view-projetos">
       <div class="hero reveal">
         <p class="kicker">Olá, eu sou o Abner</p>
-        <h1>Desenvolvedor full stack, do backend à interface.</h1>
-        <p class="lead">Estudante de Tecnologia da Informação no IFB. Construo sistemas sob medida: agendamento, e-commerce, plataformas de estudo, para clientes em Brasília e remotos. Também atuo como fotógrafo iniciante e editor de foto e vídeo.</p>
+        <h1>Desenvolvedor full stack, do backend à interface. Fotógrafo nas horas vagas.</h1>
+        <p class="lead">Estudante de Tecnologia da Informação no IFB. Construo sistemas sob medida — agendamento, e-commerce, plataformas de estudo — para clientes em Brasília e remotos. Fora do código, registro e edito imagens e vídeos.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" type="button" data-action="projects">Ver projetos</button>
           <button class="btn btn-line" type="button" data-action="contact">Falar comigo</button>
@@ -58,93 +59,132 @@
       <div class="proj-grid" id="proj-grid"></div>
     </section>
 
-    <!-- ===================== SOBRE ===================== -->
-    <section class="view" id="view-sobre">
-      <div class="profile reveal">
+    <!-- ===================== CURRÍCULO (Sobre + Skills) ===================== -->
+    <section class="view" id="view-curriculo">
+
+      <div class="cv-head reveal">
         <div class="avatar">AB</div>
-        <h1>Abner</h1>
-        <p class="role">Desenvolvedor Full Stack</p>
-        <p class="meta">Brasília, DF · Remoto · IFB, Tec. da Informação</p>
-        <p class="bio">Combino a base técnica do curso de Tecnologia da Informação com projetos freelance reais: sistemas de agendamento, plataformas de estudo, e-commerce e ferramentas internas para telecom, sempre do backend ao front.</p>
-        <p class="bio">Fora do código, também atuo como fotógrafo iniciante e editor de foto e vídeo, usando Lightroom e CapCut no dia a dia.</p>
-        <div class="chip-row">
-          <span class="tiny-chip">Fotografia</span>
-          <span class="tiny-chip">Edição de vídeo</span>
+        <div class="cv-head-text">
+          <h1>Abner Oliveira</h1>
+          <p class="role">Desenvolvedor Full Stack</p>
+          <p class="meta">Brasília, DF · Remoto · IFB, Tec. da Informação</p>
         </div>
+        <a class="btn btn-line cv-print" href="mailto:abneroliveira19072004@gmail.com?subject=Pedido%20de%20curr%C3%ADculo">
+          <span class="material-symbols-outlined" style="font-size:17px;">download</span>Pedir currículo em PDF
+        </a>
       </div>
 
-      <div class="section-head reveal"><h2>Trajetória recente</h2></div>
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="tl-top"><h3>Desenvolvedor full stack freelance</h3><span class="tl-period">Atual</span></div>
-          <p class="org">Projetos independentes</p>
-          <p>Condução completa de sistemas sob demanda, do levantamento de requisitos ao deploy, para psicóloga, loja de roupas, fotógrafos e área de telecom, sempre com backend em FastAPI.</p>
+      <div class="cv-grid">
+        <div class="cv-main">
+
+          <div class="cv-block reveal">
+            <h2>Sobre</h2>
+            <p class="bio">Combino a base técnica do curso de Tecnologia da Informação com projetos freelance reais: sistemas de agendamento, plataformas de estudo, e-commerce e ferramentas internas para telecom, sempre do backend ao front.</p>
+            <p class="bio">Fora do código, também atuo como fotógrafo iniciante e editor de foto e vídeo, usando Lightroom e CapCut no dia a dia — meus trabalhos visuais estão reunidos na aba <button class="inline-link" type="button" data-view="midia">Fotografia &amp; Vídeo</button>.</p>
+          </div>
+
+          <div class="cv-block reveal">
+            <h2>Experiência</h2>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-top"><h3>Desenvolvedor full stack freelance</h3><span class="tl-period">Atual</span></div>
+                <p class="org">Projetos independentes</p>
+                <p>Condução completa de sistemas sob demanda, do levantamento de requisitos ao deploy, para psicóloga, loja de roupas, fotógrafos e área de telecom, sempre com backend em FastAPI.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-top"><h3>Trilha Acadêmica</h3><span class="tl-period">Projeto pessoal</span></div>
+                <p class="org">Render</p>
+                <p>Sistema de recomendação de trilha de disciplinas com visualização em árvore por semestre, em FastAPI e SQLAlchemy.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-top"><h3>Rede neural do zero</h3><span class="tl-period">Acadêmico</span></div>
+                <p class="org">Curso de IA, IFB</p>
+                <p>Implementação completa de um MLP com backpropagation em Python e NumPy, com interface web para experimentos ao vivo.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-top"><h3>Correção de vulnerabilidades</h3><span class="tl-period">Freelance</span></div>
+                <p class="org">Vitor Rocha Advocacia</p>
+                <p>Revisão de uma aplicação Spring Boot em produção: credenciais expostas, URL fixa no código e uma falha de IDOR.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-block reveal">
+            <h2>Formação</h2>
+            <div class="tl-item">
+              <div class="tl-top"><h3>Tecnologia da Informação</h3><span class="tl-period">Em curso</span></div>
+              <p class="org">IFB — Instituto Federal de Brasília</p>
+            </div>
+          </div>
+
         </div>
-        <div class="tl-item reveal">
-          <div class="tl-top"><h3>Trilha Acadêmica</h3><span class="tl-period">Render</span></div>
-          <p class="org">Projeto pessoal</p>
-          <p>Sistema de recomendação de trilha de disciplinas com visualização em árvore por semestre, em FastAPI e SQLAlchemy.</p>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-top"><h3>Rede neural do zero</h3><span class="tl-period">Acadêmico</span></div>
-          <p class="org">Curso de IA, IFB</p>
-          <p>Implementação completa de um MLP com backpropagation em Python e NumPy, com interface web para experimentos ao vivo.</p>
-        </div>
-        <div class="tl-item reveal">
-          <div class="tl-top"><h3>Correção de vulnerabilidades</h3><span class="tl-period">Freelance</span></div>
-          <p class="org">Vitor Rocha Advocacia</p>
-          <p>Revisão de uma aplicação Spring Boot em produção: credenciais expostas, URL fixa no código e uma falha de IDOR.</p>
-        </div>
+
+        <aside class="cv-side">
+          <div class="cv-block reveal">
+            <h2>Skills</h2>
+            <div class="skill-group">
+              <h3>Backend &amp; APIs</h3>
+              <div class="skill-chips">
+                <span>Python</span><span>FastAPI</span><span>Java / Spring Boot</span><span>Node.js / Express</span><span>PHP</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h3>Dados &amp; cloud</h3>
+              <div class="skill-chips">
+                <span>SQL</span><span>Supabase / Postgres</span><span>Firebase / Firestore</span><span>Vercel</span><span>Railway</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h3>Front-end</h3>
+              <div class="skill-chips">
+                <span>HTML / CSS / JS puro</span><span>Vue.js</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <h3>IA &amp; automação</h3>
+              <div class="skill-chips">
+                <span>API Gemini</span><span>Redes neurais (NumPy)</span><span>Extração de dados via IA</span>
+              </div>
+            </div>
+            <div class="skill-group" style="border-bottom:none;">
+              <h3>Fotografia &amp; vídeo</h3>
+              <div class="skill-chips">
+                <span class="chip-media">Fotografia</span><span class="chip-media">Lightroom</span><span class="chip-media">CapCut</span><span class="chip-media">Edição de vídeo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-block reveal cv-contact-card">
+            <h2>Contato rápido</h2>
+            <a class="cv-contact-line" href="https://wa.me/5561981277037" target="_blank" rel="noopener"><span class="material-symbols-outlined">chat</span>(61) 98127-7037</a>
+            <a class="cv-contact-line" href="mailto:abneroliveira19072004@gmail.com"><span class="material-symbols-outlined">mail</span>abneroliveira19072004@gmail.com</a>
+            <p class="foot-note" style="text-align:left;padding-top:8px;">Brasília, DF (BRT) · 100% remoto</p>
+          </div>
+        </aside>
       </div>
 
-      <div class="cta reveal">
-        <h3>Pronto para tirar sua ideia do papel?</h3>
-        <p>Engenharia sólida do backend à interface, focada em resolver o problema real do seu negócio.</p>
-        <button class="btn btn-primary" type="button" data-action="contact">Vamos conversar</button>
-      </div>
     </section>
 
-    <!-- ===================== SKILLS ===================== -->
-    <section class="view" id="view-skills">
-      <div class="section-head reveal"><h2>Stack tecnológico</h2></div>
+    <!-- ===================== FOTOGRAFIA & VÍDEO ===================== -->
+    <section class="view" id="view-midia">
+      <div class="hero reveal media-hero" style="padding-bottom:34px;">
+        <p class="kicker kicker-media">Fora do código</p>
+        <h1 style="font-size:clamp(1.7rem,3.4vw,2.6rem);">Fotografia e edição de vídeo.</h1>
+        <p class="lead">Registro e edito imagens e vídeos como fotógrafo iniciante, com Lightroom e CapCut no fluxo de trabalho. Esta galeria está sendo montada — em breve, os ensaios e cortes entram aqui.</p>
+      </div>
 
-      <div class="skill-group reveal">
-        <h3>Backend & APIs</h3>
-        <div class="skill-chips">
-          <span>Python</span><span>FastAPI</span><span>Java / Spring Boot</span><span>Node.js / Express</span><span>PHP</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Dados & cloud</h3>
-        <div class="skill-chips">
-          <span>SQL</span><span>Supabase / Postgres</span><span>Firebase / Firestore</span><span>Vercel</span><span>Railway</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Front-end</h3>
-        <div class="skill-chips">
-          <span>HTML / CSS / JS puro</span><span>Vue.js</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h3>IA & automação</h3>
-        <div class="skill-chips">
-          <span>API Gemini</span><span>Redes neurais (NumPy)</span><span>Extração de dados via IA</span>
-        </div>
-      </div>
-      <div class="skill-group reveal">
-        <h3>Fotografia & vídeo</h3>
-        <div class="skill-chips">
-          <span>Fotografia</span><span>Lightroom</span><span>CapCut</span><span>Edição de vídeo</span>
-        </div>
-      </div>
+      <div class="section-head reveal"><h2>Fotos</h2></div>
+      <div class="media-grid" id="photo-grid"></div>
+
+      <div class="section-head reveal"><h2>Vídeos</h2></div>
+      <div class="video-grid" id="video-grid"></div>
     </section>
 
     <!-- ===================== CONTATO ===================== -->
     <section class="view" id="view-contato">
       <div class="hero reveal" style="padding-bottom:0;">
         <h1 style="font-size:1.5rem;">Vamos criar algo novo juntos?</h1>
-        <p class="lead">Disponível para freelas, novos projetos web ou parcerias.</p>
+        <p class="lead">Disponível para freelas, novos projetos web, fotografia ou parcerias.</p>
       </div>
 
       <div class="section-head reveal"><h2>Canais diretos</h2></div>
@@ -173,6 +213,7 @@
             <button type="button" class="active">Site institucional</button>
             <button type="button">E-commerce</button>
             <button type="button">Sistema / web app</button>
+            <button type="button">Fotografia / vídeo</button>
             <button type="button">Outro</button>
           </div>
         </div>
@@ -204,8 +245,8 @@
   <nav class="tabbar">
     <div class="row">
       <button class="tab-btn active" data-view="projetos"><span class="material-symbols-outlined">code_blocks</span><span>Projetos</span></button>
-      <button class="tab-btn" type="button" data-view="sobre"><span class="material-symbols-outlined">person</span><span>Sobre</span></button>
-      <button class="tab-btn" type="button" data-view="skills"><span class="material-symbols-outlined">terminal</span><span>Skills</span></button>
+      <button class="tab-btn" type="button" data-view="curriculo"><span class="material-symbols-outlined">person</span><span>Currículo</span></button>
+      <button class="tab-btn" type="button" data-view="midia"><span class="material-symbols-outlined">photo_camera</span><span>Mídia</span></button>
       <button class="tab-btn" type="button" data-view="contato"><span class="material-symbols-outlined">mail</span><span>Contato</span></button>
     </div>
   </nav>
