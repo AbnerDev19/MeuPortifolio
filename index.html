@@ -5,8 +5,6 @@
 <title>Abner Oliveira — Desenvolvedor Full Stack & Fotógrafo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="description" content="Portfólio e currículo de Abner Oliveira: desenvolvimento full stack, sistemas sob medida e trabalhos de fotografia e vídeo." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,-50..200&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="assets/logo.png">
@@ -18,7 +16,7 @@
     <div class="row">
       <a class="brand" href="#" data-view="projetos" aria-label="Ir para projetos">Abner<span class="brand-dot">.</span></a>
       <div class="desktop-nav" aria-label="Navegação principal">
-        <button class="desktop-nav-btn active" type="button" data-view="projetos">Projetos</button>
+        <button class="desktop-nav-btn active" type="button" data-view="projetos" aria-current="page">Projetos</button>
         <button class="desktop-nav-btn" type="button" data-view="curriculo">Currículo</button>
         <button class="desktop-nav-btn" type="button" data-view="midia">Fotografia &amp; Vídeo</button>
         <button class="desktop-nav-btn" type="button" data-view="contato">Contato</button>
@@ -31,34 +29,60 @@
 
     <!-- ===================== PROJETOS ===================== -->
     <section class="view active" id="view-projetos">
-      <div class="hero reveal">
-        <p class="kicker">Olá, eu sou o Abner</p>
-        <h1 class="hero-title"><span id="hero-stroke" data-stroke-text="Abner Oliveira">Abner Oliveira</span></h1>
-        <h2 class="hero-sub">Desenvolvedor full stack, do backend à interface. Fotógrafo nas horas vagas.</h2>
-        <p class="lead">Estudante de Tecnologia da Informação no IFB. Construo sistemas sob medida — agendamento, e-commerce, plataformas de estudo — para clientes em Brasília e remotos. Fora do código, registro e edito imagens e vídeos.</p>
-        <div class="hero-actions">
-          <button class="btn btn-primary" type="button" data-action="projects">Ver projetos</button>
-          <button class="btn btn-line" type="button" data-action="contact">Falar comigo</button>
+      <div class="intro">
+        <div class="intro-copy">
+          <p class="intro-name">Abner Oliveira</p>
+          <h1>Desenvolvedor <span>full stack.</span></h1>
+          <p class="intro-lead">Crio sistemas web sob medida, da API à interface. Estudo Tecnologia da Informação no IFB e fotografo Brasília nas horas livres.</p>
+          <div class="intro-actions">
+            <button class="btn btn-primary" type="button" data-action="projects">Ver projetos <span class="arrow arrow-down" aria-hidden="true"></span></button>
+            <button class="btn btn-line" type="button" data-action="contact">Falar comigo <span class="arrow" aria-hidden="true"></span></button>
+          </div>
+          <p class="intro-location">Brasília, DF <span aria-hidden="true"></span> Disponível para trabalho remoto</p>
         </div>
-        <dl class="stat-row">
-          <div><dt>5</dt><dd>projetos no ar</dd></div>
-          <div><dt>IFB</dt><dd>tec. da informação</dd></div>
-          <div><dt>DF</dt><dd>Brasília / remoto</dd></div>
-        </dl>
+        <figure class="intro-photo">
+          <img src="assets/media/fachada-modernista.jpg" alt="Fachada modernista em Brasília, com elementos de concreto e árvores à frente" width="1200" height="800" fetchpriority="high" />
+          <figcaption>
+            <span>Fachada modernista</span>
+            <button type="button" data-view="midia">Ver galeria <span class="arrow" aria-hidden="true"></span></button>
+          </figcaption>
+        </figure>
       </div>
 
-      <div id="grid-anchor"></div>
-      <div class="section-head reveal">
-        <h2>Projetos</h2>
-      </div>
-      <div class="filter-row reveal" id="filters">
-        <button class="filter-chip active" data-filter="todos">Todos</button>
-        <button class="filter-chip" data-filter="educacao">Educação</button>
-        <button class="filter-chip" data-filter="fotografia">Fotografia</button>
-        <button class="filter-chip" data-filter="institucional">Institucional</button>
-      </div>
+      <section class="project-section" id="grid-anchor" aria-labelledby="projects-heading">
+        <div class="showcase-head">
+          <h2 id="projects-heading">Projetos</h2>
+          <div class="filter-row" id="filters" role="group" aria-label="Filtrar projetos">
+            <button class="filter-chip active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+            <button class="filter-chip" type="button" data-filter="educacao" aria-pressed="false">Educação</button>
+            <button class="filter-chip" type="button" data-filter="fotografia" aria-pressed="false">Fotografia</button>
+            <button class="filter-chip" type="button" data-filter="institucional" aria-pressed="false">Institucional</button>
+          </div>
+        </div>
+        <div class="proj-grid" id="proj-grid"></div>
+      </section>
 
-      <div class="proj-grid" id="proj-grid"></div>
+      <section class="stack-section" aria-labelledby="stack-heading">
+        <div class="showcase-head">
+          <h2 id="stack-heading">Tecnologias</h2>
+          <button class="inline-link" type="button" data-view="curriculo">Ver currículo <span class="arrow" aria-hidden="true"></span></button>
+        </div>
+        <div class="stack-board">
+          <div class="stack-keys" role="group" aria-label="Explorar tecnologias">
+            <button type="button" data-skill="python" aria-pressed="true"><span aria-hidden="true">PY</span>Python</button>
+            <button type="button" data-skill="fastapi" aria-pressed="false"><span aria-hidden="true">API</span>FastAPI</button>
+            <button type="button" data-skill="javascript" aria-pressed="false"><span aria-hidden="true">JS</span>JavaScript</button>
+            <button type="button" data-skill="postgresql" aria-pressed="false"><span aria-hidden="true">SQL</span>PostgreSQL</button>
+            <button type="button" data-skill="firebase" aria-pressed="false"><span aria-hidden="true">FB</span>Firebase</button>
+            <button type="button" data-skill="gemini" aria-pressed="false"><span aria-hidden="true">IA</span>Gemini</button>
+          </div>
+          <div class="stack-detail" aria-live="polite" aria-atomic="true">
+            <p class="stack-area" id="stack-area"></p>
+            <h3 id="stack-name"></h3>
+            <p id="stack-description"></p>
+          </div>
+        </div>
+      </section>
     </section>
 
     <!-- ===================== CURRÍCULO (Sobre + Skills) ===================== -->
@@ -72,7 +96,7 @@
           <p class="meta">Brasília, DF · Remoto · IFB, Tec. da Informação</p>
         </div>
         <a class="btn btn-line cv-print" href="mailto:abneroliveira19072004@gmail.com?subject=Pedido%20de%20curr%C3%ADculo">
-          <span class="material-symbols-outlined" style="font-size:17px;">download</span>Pedir currículo em PDF
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size:17px;">download</span>Pedir currículo em PDF
         </a>
       </div>
 
@@ -158,8 +182,8 @@
 
           <div class="cv-block reveal cv-contact-card">
             <h2>Contato rápido</h2>
-            <a class="cv-contact-line" href="https://wa.me/5561981277037" target="_blank" rel="noopener"><span class="material-symbols-outlined">chat</span>(61) 98127-7037</a>
-            <a class="cv-contact-line" href="mailto:abneroliveira19072004@gmail.com"><span class="material-symbols-outlined">mail</span>abneroliveira19072004@gmail.com</a>
+            <a class="cv-contact-line" href="https://wa.me/5561981277037" target="_blank" rel="noopener"><span class="material-symbols-outlined" aria-hidden="true">chat</span>(61) 98127-7037</a>
+            <a class="cv-contact-line" href="mailto:abneroliveira19072004@gmail.com"><span class="material-symbols-outlined" aria-hidden="true">mail</span>abneroliveira19072004@gmail.com</a>
             <p class="foot-note" style="text-align:left;padding-top:8px;">Brasília, DF (BRT) · 100% remoto</p>
           </div>
         </aside>
@@ -172,7 +196,7 @@
       <div class="hero reveal media-hero" style="padding-bottom:34px;">
         <p class="kicker kicker-media">Fora do código</p>
         <h1 style="font-size:clamp(1.7rem,3.4vw,2.6rem);">Fotografia e edição de vídeo.</h1>
-        <p class="lead">Registro e edito imagens e vídeos como fotógrafo iniciante, com Lightroom e CapCut no fluxo de trabalho. Esta galeria está sendo montada — em breve, os ensaios e cortes entram aqui.</p>
+        <p class="lead">Fotografo cenas e detalhes de Brasília e edito imagens e vídeos no Lightroom e no CapCut.</p>
       </div>
 
       <div class="section-head reveal"><h2>Fotos</h2></div>
@@ -226,15 +250,15 @@
       <div class="section-head reveal"><h2>Perguntas frequentes</h2></div>
       <div class="reveal">
         <details class="faq-item">
-          <summary>Qual é o prazo médio de desenvolvimento?<span class="material-symbols-outlined">expand_more</span></summary>
+          <summary>Qual é o prazo médio de desenvolvimento?<span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary>
           <p>Depende do escopo: sistemas simples saem em 2 a 4 semanas; plataformas completas levam mais tempo, combinado no início do projeto.</p>
         </details>
         <details class="faq-item">
-          <summary>Como funciona o pagamento?<span class="material-symbols-outlined">expand_more</span></summary>
+          <summary>Como funciona o pagamento?<span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary>
           <p>Geralmente dividido em etapas: sinal no início, valor intermediário e restante na entrega, combinado caso a caso.</p>
         </details>
         <details class="faq-item">
-          <summary>Qual stack tecnológica é usada?<span class="material-symbols-outlined">expand_more</span></summary>
+          <summary>Qual stack tecnológica é usada?<span class="material-symbols-outlined" aria-hidden="true">expand_more</span></summary>
           <p>Backend em Python (FastAPI) na maioria dos casos, Supabase ou Firebase como banco, e deploy na Vercel. A stack se adapta ao projeto.</p>
         </details>
       </div>
@@ -246,15 +270,14 @@
 
   <nav class="tabbar">
     <div class="row">
-      <button class="tab-btn active" data-view="projetos"><span class="material-symbols-outlined">code_blocks</span><span>Projetos</span></button>
-      <button class="tab-btn" type="button" data-view="curriculo"><span class="material-symbols-outlined">person</span><span>Currículo</span></button>
-      <button class="tab-btn" type="button" data-view="midia"><span class="material-symbols-outlined">photo_camera</span><span>Mídia</span></button>
-      <button class="tab-btn" type="button" data-view="contato"><span class="material-symbols-outlined">mail</span><span>Contato</span></button>
+      <button class="tab-btn active" data-view="projetos"><span class="material-symbols-outlined" aria-hidden="true">code_blocks</span><span>Projetos</span></button>
+      <button class="tab-btn" type="button" data-view="curriculo"><span class="material-symbols-outlined" aria-hidden="true">person</span><span>Currículo</span></button>
+      <button class="tab-btn" type="button" data-view="midia"><span class="material-symbols-outlined" aria-hidden="true">photo_camera</span><span>Mídia</span></button>
+      <button class="tab-btn" type="button" data-view="contato"><span class="material-symbols-outlined" aria-hidden="true">mail</span><span>Contato</span></button>
     </div>
   </nav>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
