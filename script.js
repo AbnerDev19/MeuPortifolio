@@ -55,12 +55,22 @@ function renderProjects(filter = "todos") {
 }
 
 const skills = {
-  python: ["Python", "Backend", "Uso Python para desenvolver APIs, tratar dados e implementar projetos acadêmicos, como uma rede neural com NumPy."],
-  fastapi: ["FastAPI", "APIs", "Construo APIs em FastAPI para sistemas web, como o Simula e a galeria OBSCURA."],
-  javascript: ["JavaScript", "Front-end", "Uso JavaScript para criar interfaces e interações. Os filtros de projetos e este painel são exemplos no próprio portfólio."],
-  postgresql: ["PostgreSQL", "Banco de dados", "Trabalho com PostgreSQL via Supabase. Na OBSCURA, o Supabase faz parte da infraestrutura da galeria."],
-  firebase: ["Firebase", "Dados e nuvem", "O Firebase faz parte da infraestrutura do Simula, minha plataforma de simulados com correção e relatórios de desempenho."],
-  gemini: ["Gemini", "IA e automação", "Integro a API Gemini para apoiar automações e extração de dados. Ela também faz parte da stack do Simula."]
+  html: ["HTML", "Front-end", "Estruturo páginas como o próprio portfólio e o site da Comissão CFO PMDF.", "coral"],
+  css: ["CSS", "Front-end", "Uso CSS para criar layouts responsivos, animações e a perspectiva 3D deste teclado.", "blue"],
+  javascript: ["JavaScript", "Front-end", "Uso JavaScript nos filtros deste portfólio e na lógica de hábitos e estudos do MyLife.", "orange"],
+  vue: ["Vue.js", "Front-end", "Crio interfaces web com componentes reutilizáveis em Vue.js.", "green"],
+  python: ["Python", "Backend", "Uso Python para desenvolver APIs, tratar dados e implementar projetos acadêmicos, como uma rede neural com NumPy.", "cyan"],
+  fastapi: ["FastAPI", "APIs", "Construo APIs em FastAPI para sistemas web, como o Simula e a galeria OBSCURA.", "mint"],
+  node: ["Node.js", "Backend", "Uso Node.js com Express para construir APIs em JavaScript.", "lime"],
+  spring: ["Spring Boot", "Backend", "Trabalho com aplicações Java e Spring Boot em projetos freelance.", "purple"],
+  postgresql: ["PostgreSQL", "Banco de dados", "Trabalho com PostgreSQL via Supabase, que também faz parte da infraestrutura da galeria OBSCURA.", "blue"],
+  supabase: ["Supabase", "Dados e nuvem", "Uso Supabase para dados e autenticação na plataforma de galerias OBSCURA.", "green"],
+  firebase: ["Firebase", "Dados e nuvem", "O Firebase faz parte da infraestrutura do Simula, plataforma de simulados com correção e relatórios de desempenho.", "orange"],
+  gemini: ["Gemini", "IA e automação", "Integro a API Gemini para automações e extração de dados. Ela também faz parte da stack do Simula.", "purple"],
+  git: ["Git", "Versionamento", "Versiono o código dos meus projetos com Git e mantenho este portfólio no GitHub.", "coral"],
+  vercel: ["Vercel", "Publicação", "Uso a Vercel para publicar projetos como Simula, OBSCURA e Mr.Fotografia.", "graphite"],
+  numpy: ["NumPy", "Computação científica", "Implementei uma rede neural com NumPy e backpropagation em um projeto acadêmico do IFB.", "cyan"],
+  cloudinary: ["Cloudinary", "Mídia", "A galeria OBSCURA usa Cloudinary como parte da infraestrutura de imagens.", "magenta"]
 };
 
 function initSkillBoard() {
@@ -68,12 +78,35 @@ function initSkillBoard() {
   const area = document.getElementById("stack-area");
   const name = document.getElementById("stack-name");
   const description = document.getElementById("stack-description");
+  const indicator = document.querySelector(".stack-indicator");
+
+  // A ordem corresponde aos quatro quadrantes do atlas de ícones.
+  Object.entries(skills).forEach(([skill, [label, , , color]], index) => {
+    const button = document.createElement("button");
+    const face = document.createElement("span");
+    const logo = document.createElement("span");
+
+    button.type = "button";
+    button.className = "stack-key";
+    button.dataset.skill = skill;
+    button.dataset.color = color;
+    button.setAttribute("aria-label", label);
+    button.title = label;
+    face.className = "stack-key-face";
+    face.setAttribute("aria-hidden", "true");
+    logo.className = "tech-logo";
+    logo.style.backgroundPosition = `${(index % 4) * 100 / 3}% ${Math.floor(index / 4) * 100 / 3}%`;
+    face.appendChild(logo);
+    button.appendChild(face);
+    keys.appendChild(button);
+  });
 
   function selectSkill(button) {
-    const [skillName, skillArea, skillDescription] = skills[button.dataset.skill];
+    const [skillName, skillArea, skillDescription, color] = skills[button.dataset.skill];
     keys.querySelectorAll("button").forEach(key => {
       key.setAttribute("aria-pressed", String(key === button));
     });
+    indicator.dataset.color = color;
     area.textContent = skillArea;
     name.textContent = skillName;
     description.textContent = skillDescription;
@@ -83,7 +116,7 @@ function initSkillBoard() {
     const button = event.target.closest("button[data-skill]");
     if (button) selectSkill(button);
   });
-  selectSkill(keys.querySelector('[aria-pressed="true"]'));
+  selectSkill(keys.querySelector('[data-skill="python"]'));
 }
 
 function renderMedia(){
@@ -157,6 +190,16 @@ function setActiveView(view, focusHeading = false) {
 }
 
 function scrollToGrid() {
+  const home = document.getElementById("view-projetos");
+  if (!home.classList.contains("active")) setActiveView("projetos");
+
+  document.querySelectorAll(".desktop-nav-btn, .tab-btn").forEach(button => {
+    const isProjects = button.dataset.action === "projects";
+    button.classList.toggle("active", isProjects);
+    if (isProjects) button.setAttribute("aria-current", "location");
+    else button.removeAttribute("aria-current");
+  });
+
   const heading = document.getElementById("projects-heading");
   heading.tabIndex = -1;
   heading.focus({ preventScroll: true });
@@ -190,8 +233,10 @@ function init() {
     renderProjects(button.dataset.filter);
   });
 
-  document.querySelector('[data-action="projects"]').addEventListener("click", scrollToGrid);
-  document.querySelector('[data-action="contact"]').addEventListener("click", () => setActiveView("contato", true));
+  document.querySelectorAll('[data-action="projects"]').forEach(button => button.addEventListener("click", scrollToGrid));
+  document.querySelectorAll('[data-action="contact"]').forEach(button => {
+    button.addEventListener("click", () => setActiveView("contato", true));
+  });
 
   document.querySelectorAll(".pill-select button").forEach(button => {
     button.addEventListener("click", () => {
