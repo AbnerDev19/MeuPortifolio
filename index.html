@@ -2,32 +2,20 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
-<title>Abner Oliveira — Desenvolvedor Full Stack & Fotógrafo</title>
+<title>Abner Oliveira | Landing pages e sites para negócios</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="description" content="Portfólio e currículo de Abner Oliveira: desenvolvimento full stack, sistemas sob medida e trabalhos de fotografia e vídeo." />
-<link rel="stylesheet" href="style.css" />
+<meta name="description" content="Catálogo de landing pages, sites institucionais e sistemas web de Abner Oliveira. Veja os projetos publicados e fale pelo WhatsApp." />
+<link rel="stylesheet" href="style.css?v=catalogo" />
   <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
 <body>
 <div class="shell">
 
-  <div class="welcome" aria-hidden="true">
-    <div class="welcome-content">
-      <div class="welcome-icons">
-        <span class="material-symbols-outlined">code_blocks</span>
-        <span class="material-symbols-outlined">person</span>
-        <span class="material-symbols-outlined">photo_camera</span>
-      </div>
-      <p>Bem-vindo ao meu <strong>portfólio digital.</strong></p>
-    </div>
-  </div>
-
   <header>
     <div class="row">
-      <a class="brand" href="#" data-view="projetos" aria-label="Ir para o início">Abner<span class="brand-dot">.</span></a>
+      <a class="brand" href="#" data-view="projetos" aria-label="Ir para o catálogo">Abner<span class="brand-dot">.</span></a>
       <div class="desktop-nav" aria-label="Navegação principal">
-        <button class="desktop-nav-btn active" type="button" data-view="projetos" aria-current="page">Início</button>
-        <button class="desktop-nav-btn" type="button" data-action="projects">Projetos</button>
+        <button class="desktop-nav-btn active" type="button" data-view="projetos" aria-current="page">Catálogo</button>
         <button class="desktop-nav-btn" type="button" data-view="curriculo">Currículo</button>
         <button class="desktop-nav-btn" type="button" data-view="midia">Fotografia &amp; Vídeo</button>
         <button class="desktop-nav-btn" type="button" data-view="contato">Contato</button>
@@ -40,13 +28,32 @@
 
     <!-- ===================== PROJETOS ===================== -->
     <section class="view active" id="view-projetos">
+      <section class="project-section" id="grid-anchor" aria-labelledby="projects-heading">
+        <div class="catalog-head">
+          <div>
+            <p class="catalog-label">Catálogo de sites</p>
+            <h1 id="projects-heading">Landing pages e <span>sites para negócios.</span></h1>
+          </div>
+          <div class="catalog-contact">
+            <p>Apresente seus serviços, mostre seu catálogo e facilite o contato dos seus clientes pelo WhatsApp.</p>
+            <a class="btn btn-primary" href="https://wa.me/5561981277037?text=Oi%2C%20Abner%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener noreferrer">Pedir orçamento no WhatsApp <span class="arrow" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="filter-row catalog-filters" id="filters" role="group" aria-label="Filtrar projetos">
+          <button class="filter-chip active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-chip" type="button" data-filter="site" aria-pressed="false">Sites e landing pages</button>
+          <button class="filter-chip" type="button" data-filter="sistema" aria-pressed="false">Sistemas</button>
+        </div>
+        <div class="proj-grid" id="proj-grid"></div>
+      </section>
+
       <div class="intro">
         <div class="intro-copy">
           <p class="intro-name"><span class="material-symbols-outlined" aria-hidden="true">code_blocks</span> Abner Oliveira</p>
-          <h1>Desenvolvedor <span>Full Stack.</span></h1>
+          <h2>Desenvolvedor <span>Full Stack.</span></h2>
           <p class="intro-lead">Desenvolvo sistemas web sob medida, da API à interface. Estudo Tecnologia da Informação no IFB, em Brasília.</p>
           <div class="intro-actions">
-            <button class="btn btn-primary" type="button" data-action="projects">Ver projetos <span class="arrow arrow-down" aria-hidden="true"></span></button>
+            <button class="btn btn-primary" type="button" data-action="projects">Voltar ao catálogo <span class="arrow arrow-down" aria-hidden="true"></span></button>
             <button class="btn btn-line" type="button" data-action="contact">Falar comigo <span class="arrow" aria-hidden="true"></span></button>
           </div>
           <p class="intro-location">Brasília, DF <span aria-hidden="true"></span> Disponível para trabalho remoto</p>
@@ -92,23 +99,10 @@
         </div>
       </section>
 
-      <section class="project-section" id="grid-anchor" aria-labelledby="projects-heading">
-        <div class="showcase-head">
-          <h2 id="projects-heading">Vitrine de projetos</h2>
-          <div class="filter-row" id="filters" role="group" aria-label="Filtrar projetos">
-            <button class="filter-chip active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
-            <button class="filter-chip" type="button" data-filter="educacao" aria-pressed="false">Educação</button>
-            <button class="filter-chip" type="button" data-filter="fotografia" aria-pressed="false">Fotografia</button>
-            <button class="filter-chip" type="button" data-filter="institucional" aria-pressed="false">Institucional</button>
-          </div>
-        </div>
-        <div class="proj-grid" id="proj-grid"></div>
-      </section>
-
       <section class="home-contact" aria-labelledby="home-contact-heading">
         <h2 id="home-contact-heading">Vamos trabalhar juntos?</h2>
-        <p>Disponível para projetos web, freelas e fotografia.</p>
-        <button class="btn btn-primary" type="button" data-action="contact">Entrar em contato <span class="arrow" aria-hidden="true"></span></button>
+        <p>Me conte o que seu negócio precisa e eu te ajudo a definir o site.</p>
+        <a class="btn btn-primary" href="https://wa.me/5561981277037?text=Oi%2C%20Abner%21%20Quero%20um%20or%C3%A7amento%20para%20um%20site." target="_blank" rel="noopener noreferrer">Pedir orçamento no WhatsApp <span class="arrow" aria-hidden="true"></span></a>
       </section>
     </section>
 
@@ -297,8 +291,7 @@
 
   <nav class="tabbar">
     <div class="row">
-      <button class="tab-btn active" type="button" data-view="projetos" aria-current="page"><span class="material-symbols-outlined" aria-hidden="true">code_blocks</span><span>Início</span></button>
-      <button class="tab-btn" type="button" data-action="projects"><span class="material-symbols-outlined" aria-hidden="true">code_blocks</span><span>Projetos</span></button>
+      <button class="tab-btn active" type="button" data-view="projetos" aria-current="page"><span class="material-symbols-outlined" aria-hidden="true">code_blocks</span><span>Catálogo</span></button>
       <button class="tab-btn" type="button" data-view="curriculo"><span class="material-symbols-outlined" aria-hidden="true">person</span><span>Currículo</span></button>
       <button class="tab-btn" type="button" data-view="midia"><span class="material-symbols-outlined" aria-hidden="true">photo_camera</span><span>Mídia</span></button>
       <button class="tab-btn" type="button" data-view="contato"><span class="material-symbols-outlined" aria-hidden="true">mail</span><span>Contato</span></button>
@@ -306,6 +299,6 @@
   </nav>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=catalogo"></script>
 </body>
 </html>

@@ -1,4 +1,82 @@
-const projects=[{name:"Simula",cat:"educacao",catLabel:"Educação",status:"Em produção",preview:"assets/proj/simula.jpg",previewFit:"contain",glyph:"S",desc:"Plataforma de simulados cronometrados, com correção na hora e relatório de desempenho por matéria, para o candidato saber exatamente onde focar o estudo.",tags:["FastAPI","Firebase","Gemini AI"],url:"https://simulado-nine.vercel.app/pages/login.html"},{name:"Mr.Fotografia",cat:"fotografia",catLabel:"Fotografia",status:"Em produção",preview:"assets/proj/mrfotos.jpg",previewFit:"contain",glyph:"F",desc:"Site autoral para o fotógrafo Matheus, com portfólio editorial, contato direto e galeria privada para entrega de ensaios aos clientes.",tags:["Front-end","Galeria privada","Design editorial"],url:"https://portf-lio-theta-liard.vercel.app/"},{name:"OBSCURA",cat:"fotografia",catLabel:"Fotografia",status:"Em produção",preview:"assets/proj/obscura.jpg",previewFit:"contain",glyph:"O",desc:"Plataforma de galeria para fotógrafos publicarem e organizarem seu acervo visual, com área de login exclusiva para quem sobe as fotos.",tags:["FastAPI","Supabase","Cloudinary"],url:"https://galeria-de-fotos-psi-sandy.vercel.app/"},{name:"Comissão CFO PMDF 2025",cat:"institucional",catLabel:"Institucional",status:"No ar",preview:"assets/proj/cfo.jpg",previewFit:"contain",glyph:"P",desc:"Site institucional de uma comissão de candidatos do concurso CFO PMDF, reunindo dados técnicos e argumentos pela ampliação do número de redações corrigidas.",tags:["HTML/CSS/JS","Data viz","Institucional"],url:"https://abnerdev19.github.io/Pmdf-Cfo/"},{name:"MyLife",cat:"educacao",catLabel:"Produtividade",status:"Em produção",preview:"assets/proj/mylife.jpg",previewFit:"contain",glyph:"M",desc:"Dashboard pessoal gamificado para estudos: missões, hábitos, atributos e uma sala de estudos com cronômetro que gera XP automaticamente.",tags:["JavaScript","Gamificação","Produtividade"],url:"https://abnerdev19.github.io/MyLife/"}];
+const projects = [
+  {
+    name: "Lucas Imobiliária",
+    type: "site",
+    catLabel: "Catálogo imobiliário",
+    status: "No ar",
+    featured: true,
+    preview: "assets/proj/lucas-imobiliaria.webp",
+    desc: "Catálogo de empreendimentos no DF com páginas de detalhes e contato direto com o corretor pelo WhatsApp.",
+    tags: ["Vitrine de imóveis", "Detalhes por empreendimento", "WhatsApp"],
+    url: "https://abnerdev19.github.io/Lucas-Imobiliaria/index.html"
+  },
+  {
+    name: "Haiane Castro",
+    type: "site",
+    catLabel: "Site de serviços",
+    status: "No ar",
+    featured: true,
+    preview: "assets/proj/haiane-castro.jpg",
+    desc: "Site profissional com apresentação dos serviços, informações de atendimento e contato pelo WhatsApp.",
+    tags: ["Apresentação profissional", "Serviços", "WhatsApp"],
+    url: "https://abnerdev19.github.io/Psi.HaianeCastro/"
+  },
+  {
+    name: "Mr.Fotografia",
+    type: "site",
+    catLabel: "Fotografia",
+    status: "Em produção",
+    preview: "assets/proj/mrfotos.jpg",
+    previewFit: "contain",
+    desc: "Site autoral para o fotógrafo Matheus, com portfólio editorial, contato direto e galeria privada para entrega de ensaios aos clientes.",
+    tags: ["Front-end", "Galeria privada", "Design editorial"],
+    url: "https://portf-lio-theta-liard.vercel.app/"
+  },
+  {
+    name: "Comissão CFO PMDF 2025",
+    type: "site",
+    catLabel: "Institucional",
+    status: "No ar",
+    preview: "assets/proj/cfo.jpg",
+    previewFit: "contain",
+    desc: "Site institucional de uma comissão de candidatos do concurso CFO PMDF, reunindo dados técnicos e argumentos pela ampliação do número de redações corrigidas.",
+    tags: ["HTML/CSS/JS", "Data viz", "Institucional"],
+    url: "https://abnerdev19.github.io/Pmdf-Cfo/"
+  },
+  {
+    name: "Simula",
+    type: "sistema",
+    catLabel: "Educação",
+    status: "Em produção",
+    preview: "assets/proj/simula.jpg",
+    previewFit: "contain",
+    desc: "Plataforma de simulados cronometrados, com correção na hora e relatório de desempenho por matéria, para o candidato saber exatamente onde focar o estudo.",
+    tags: ["FastAPI", "Firebase", "Gemini AI"],
+    url: "https://projeto-simulado-three.vercel.app/pages/login.html"
+  },
+  {
+    name: "OBSCURA",
+    type: "sistema",
+    catLabel: "Fotografia",
+    status: "Em produção",
+    preview: "assets/proj/obscura.jpg",
+    previewFit: "contain",
+    desc: "Plataforma de galeria para fotógrafos publicarem e organizarem seu acervo visual, com área de login exclusiva para quem sobe as fotos.",
+    tags: ["FastAPI", "Supabase", "Cloudinary"],
+    url: "https://galeria-de-fotos-psi-sandy.vercel.app/"
+  },
+  {
+    name: "MyLife",
+    type: "sistema",
+    catLabel: "Produtividade",
+    status: "Em produção",
+    preview: "assets/proj/mylife.jpg",
+    previewFit: "contain",
+    desc: "Dashboard pessoal gamificado para estudos: missões, hábitos, atributos e uma sala de estudos com cronômetro que gera XP automaticamente.",
+    tags: ["JavaScript", "Gamificação", "Produtividade"],
+    url: "https://abnerdev19.github.io/MyLife/"
+  }
+];
 
 // ===== Fotografia & Vídeo =====
 // Para adicionar uma foto: coloque o arquivo em assets/media/ e adicione um item aqui.
@@ -25,16 +103,19 @@ const videos=[];
 
 function renderProjects(filter = "todos") {
   const grid = document.getElementById("proj-grid");
-  const visibleProjects = projects.filter(project => filter === "todos" || project.cat === filter);
+  const visibleProjects = projects.filter(project => filter === "todos" || project.type === filter);
 
   grid.replaceChildren();
   visibleProjects.forEach((project, index) => {
     const card = document.createElement("article");
+    const imageLoading = project.featured
+      ? (index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="eager"')
+      : 'loading="lazy"';
     const preview = project.preview
-      ? `<img class="fit-${project.previewFit || "cover"}" src="${project.preview}" alt="Prévia de ${project.name}" loading="lazy">`
-      : `<div class="placeholder"><span class="glyph">${project.glyph}</span><span class="hint">Prévia em breve</span></div>`;
+      ? `<img class="fit-${project.previewFit || "cover"}" src="${project.preview}" alt="Prévia de ${project.name}" ${imageLoading}>`
+      : `<div class="placeholder"><span class="glyph">${project.name[0]}</span><span class="hint">Prévia em breve</span></div>`;
 
-    card.className = "proj-card";
+    card.className = project.featured ? "proj-card featured" : "proj-card";
     card.style.setProperty("--card-delay", `${Math.min(index, 3) * 45}ms`);
     card.innerHTML = `
       <div class="preview-shot">
@@ -190,16 +271,6 @@ function setActiveView(view, focusHeading = false) {
 }
 
 function scrollToGrid() {
-  const home = document.getElementById("view-projetos");
-  if (!home.classList.contains("active")) setActiveView("projetos");
-
-  document.querySelectorAll(".desktop-nav-btn, .tab-btn").forEach(button => {
-    const isProjects = button.dataset.action === "projects";
-    button.classList.toggle("active", isProjects);
-    if (isProjects) button.setAttribute("aria-current", "location");
-    else button.removeAttribute("aria-current");
-  });
-
   const heading = document.getElementById("projects-heading");
   heading.tabIndex = -1;
   heading.focus({ preventScroll: true });
